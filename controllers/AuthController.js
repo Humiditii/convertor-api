@@ -1,12 +1,12 @@
 import Auth from '../models/auth';
 import Util from '../utility/Utility';
-import e, { response } from 'express';
 
 class AuthController {
     static async signup(req, res, next){
         const {email, password } = req.body;  
         const checkExisting = await Auth.find({email: email});
-        if(checkExisting){
+        //console.log(checkExisting)
+        if(checkExisting.length > 0 ){
             return res.status(200).json({
                 statusCode: 200,
                 message: 'Mail exists, try to login or try another Mail'

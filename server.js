@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import AuthRouter from './routes/authRoute';
+import ConvertRouter from './routes/convertRoute';
 dotenv.config();
 
 const app = express();
@@ -32,11 +33,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Application routes
-// app.use('/api/v1', TodoRoute);
 app.use('/api/v1', AuthRouter);
-// app.use('/api/v1', EventRouter);
-// app.use('/api/v1', GroupRoute);
-// app.use('/api/v1', scheduleRoute);
+app.use('/api/v1', ConvertRouter);
 //routes ends here
 app.use('/', (req, res)=> {
     res.status(200).json({

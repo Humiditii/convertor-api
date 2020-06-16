@@ -1,5 +1,9 @@
 class ConvertController {
-    static getFile(req, res, next){
+    static uploadFile(req, res, next){
+
+        const {file} = req;
+
+        console.log(file)
 
     }
 }
