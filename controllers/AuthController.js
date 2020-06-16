@@ -19,8 +19,13 @@ class AuthController {
             });
 
             signupNew.save().then( result => {
+                const user = {
+                    email: result.email,
+                    id: result._id
+                }
                 return res.status(201).json({
-                    message: 'User Signed up, proceed to login'
+                    message: 'User Signed up, Logged in automatically',
+                    token:  Util.generateToken(user)
                 })
             }).catch( err => {
                 return Util.appError(err, next);
@@ -55,6 +60,10 @@ class AuthController {
                 })
             }
         }
+    }
+
+    static resetPassword(req, res, next){
+
     }
 
 }

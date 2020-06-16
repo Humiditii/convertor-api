@@ -5,7 +5,7 @@ class EmptyCheck {
         const {email, password} = req.body;
         if( email.length == 0 || password.length == 0){
             const error = {
-                message: 'Empty field',
+                message: 'Empty field present!, please check and try again',
                 statusCode: 409
             }
             return Util.appError(error, next);

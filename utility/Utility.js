@@ -28,7 +28,7 @@ class Utility {
         return sign({
             email:user_token_data.email,
             userId: user_token_data.id
-        }, process.env.SECRET)
+        }, process.env.SECRET, { expiresIn: '1d' } )
     }
 
     static randomStr(){
