@@ -1,0 +1,11 @@
+{
+  "name": "convertor-api",
+  "version": "1.0.0",
+  "description": "This is a RESTFUL api to send http requests to the server to process the conversion",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Babatunde AbdulHameed Olakunle",
+  "license": "ISC"
+}
