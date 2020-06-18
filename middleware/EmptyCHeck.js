@@ -9,6 +9,8 @@ class EmptyCheck {
                 statusCode: 409
             }
             return Util.appError(error, next);
+        }else{
+            next()
         }
     }
 }

@@ -1,4 +1,70 @@
-1 Role: Member
- name: Hameed
-,2 Role: Admin
- name: Hameed
+1 Abstract understanding of mathematics is often referred to as __________?
+Answer: *Doing mathematics in your head*
+,2 When mathematics problems are solved by students using paper and pencil is an example of ___________?
+Answer: *Abstract level problem solving*
+,3 One of the effective mathematics instructions for students with learning difficulties in mathematics is _______?
+Answer: *Systematic and explicit instruction*
+,4 Explicit instruction in mathematics teaching is also called ________?
+Answer: *Direct instruction*
+,5 Explicit instruction in mathematics takes place between _________?
+Answer: *Students and their teachers*
+,6 The full meaning of CAST is __________?
+Answer: *Centre for Applied Special Technology*
+,7 Systematic instruction is also called __________?
+Answer: *Strategy instruction*
+,8 Mathematics instruction in which students manage themselves as learner is called __________?
+Answer: *Self-instruction*
+,9 Mathematics instruction in which students work in pairs to help one another is called _________?
+Answer: *Peer-tutoring*
+,10 Students’ cognitive development is a field of study in neuroscience and ___________?
+Answer: *Psychology*
+,11 Another name for signal learning is _________?
+Answer: *Conditioned reflex*
+,12 Stimulus-response learning is also called _________?
+Answer: *Trial and error learning*
+,13 ______________ Learning is the process of establishing a sequential connection of a set of stimulus -response?
+Answer: *Chaining*
+,14 _____________ Type of learning involves discrimination and classification of objects?
+Answer: *Concept*
+,15 The two types of concept learning are ________?
+Answer: *Concrete and abstract*
+,16 ____________ Psychologist believed that reality is a dynamic system of continuous change?
+Answer: *Piaget*
+,17 ____________ refer to all manners of changes that a thing or persons can undergo?
+Answer: *Transformations*
+,18 __________ intelligence is the active aspect of intelligence
+Answer: *Operative*
+,19 ___________ Intelligence is responsible for the representation of the static aspects of reality?
+Answer: *Figurative*
+,20 Piaget study focused on accommodation and ____________?
+Answer: *Assimilation*
+,21 The first stage of intellectual development according to Jean Piaget is called ____________?
+Answer: *Sensorimotor stage*
+,22 According to Piaget the stage of cognitive development that extends from birth to the acquisition of language is _________?
+Answer: *Sensorimotor stage*
+,23 0-2 years of cognitive development according to Piaget is called _________?
+Answer: *Sensorimotor stage*
+,24 The second stage of Piaget cognitive development is called _________?
+Answer: *Preoperational stage*
+,25 The third stage of Piaget cognitive development is called __________?
+Answer: *Concrete operational stage*
+,26 The fourth stage of Piaget cognitive development is called _________?
+Answer: *Formal operational stage*
+,27 The objectives that specify what the learners are expected to perform are _________?
+Answer: *Behavioural objectives*
+,28 According to Benjamin Bloom and his colleagues the first level of cognition is called _________?
+Answer: *Knowledge*
+,29 According to Benjamin Bloom and his colleagues, the second level of cognition is called _________?
+Answer: *Comprehension*
+,30 According to Benjamin Bloom and his colleagues, the third level of cognition is called _________?
+Answer: *Application*
+,31 According to Benjamin Bloom and his colleagues, the forth level of cognition is called _________?
+Answer: *Analysis*
+,32 According to Benjamin Bloom and his colleagues, the fifth level of cognition is called _________?
+Answer: *Synthesis*
+,33 According to Benjamin Bloom and his colleagues, the sixth level of cognition is called _________?
+Answer: *Evaluation*
+,34 The stage in which Benjamin Bloom and colleagues said students involves in rote memorisation is called _________?
+Answer: *Knowledge*
+,35 The stage in which Benjamin Bloom and colleagues said students involves in correct use of facts is called _________?
+Answer: Application
