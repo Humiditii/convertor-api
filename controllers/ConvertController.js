@@ -1,10 +1,4 @@
-import fs from 'fs';
 import xml2js from 'xml2js';
-import jsn from '../xml.json';
-
-// const jsn = JSON.parse(jsnIMp)
-
-// const ps = xml2js.Parser({})
 
 
 class ConvertController {
@@ -18,20 +12,22 @@ class ConvertController {
             }
             const writejsn = JSON.stringify(result);
             const data = writejsn.replace(/<[^><]*>/g, '')
+            const x = JSON.parse(data);
+            const dj =  x.question_categories_customized.question_category[5].questions[0].question
 
-            
+            return res.send(dj.map( (item, index) => (index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ))
 
-            try {
-                const writeJson = fs.writeFileSync('xml.json', data);
-                const writeTxt = fs.writeFileSync('xml.txt',jsn.question_categories_customized.question_category[5].questions[0].question.map( (item, index) => (index+1+ ' ' +item.questiontext_noun_customized+'\n' + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext + '\n') ))
+            // try {
+            //     const writeJson = fs.writeFileSync('xml.json', data);
+            //     const writeTxt = fs.writeFileSync('xml.txt',jsn.question_categories_customized.question_category[5].questions[0].question.map( (item, index) => (index+1+ ' ' +item.questiontext_noun_customized+'\n' + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext + '\n') ))
 
-                return res.json({
-                    data: jsn.question_categories_customized.question_category[5].questions[0].question
-                })
+            //     return res.json({
+            //         data: jsn.question_categories_customized.question_category[5].questions[0].question
+            //     })
 
-            } catch (err) {
-                throw err
-            }
+            // } catch (err) {
+            //     throw err
+            // }
         
             // fs.writeFile('xml.json', data, (err, result) => {
             //     if(err){
