@@ -9,6 +9,9 @@
     "start": "babel-node server.js",
     "kill": "killall -9 node"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "author": "Babatunde AbdulHameed Olakunle",
   "license": "ISC",
   "dependencies": {
