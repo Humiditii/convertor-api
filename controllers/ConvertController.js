@@ -92,7 +92,7 @@ class ConvertController {
     static listFiles(req, res, next){
         const {userId} = req;
 
-        Convert.find({creator: userId}).select('_id', 'file_name', 'convert_date').then(result => {
+        Convert.find({creator: userId}).select(['_id', 'file_name', 'convert_date']).then(result => {
             return res.status(200).json({
                 data: result
             })
