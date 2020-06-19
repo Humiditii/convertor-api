@@ -5,14 +5,18 @@ const convertSchema = Schema({
         type: String,
         required: true
     },
-    file_dir: {
-        type: String,
+    file_content: {
+        type: Array,
         required: true
     }, 
     convert_date : {
         type: Date,
         default: Date.now()
-    }
+    },
+    creator : {
+        type:Schema.Types.ObjectId,
+        ref: 'auth'
+    },
 });
 
 export default model('convert', convertSchema);

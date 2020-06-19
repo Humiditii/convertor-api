@@ -52,8 +52,8 @@ class AuthController {
                 })
             }else{
                 const user = {
-                    email: findEmailDocument.email,
-                    id: findEmailDocument._id
+                    email: doesMailExist.email,
+                    id: doesMailExist._id
                 }
 
                 return res.status(200).json({
