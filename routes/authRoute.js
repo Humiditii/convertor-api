@@ -7,7 +7,7 @@ const authRouter = Router();
 
 authRouter.post('/signup', AuthController.signup);
 
-authRouter.post('/signin', EmptyCheck.signinDetails, AuthController.signin);
+authRouter.post('/signin', AuthController.signin);
 
 baseRoute.use('/auth', authRouter);
 
