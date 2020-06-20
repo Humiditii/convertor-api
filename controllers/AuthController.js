@@ -38,10 +38,10 @@ class AuthController {
 
         const doesMailExist = await Auth.findOne({email: email});
 
-        console.log(doesMailExist)
+        //console.log(doesMailExist)
 
         if(!doesMailExist){
-            return res.status(404).json({
+            return res.status(200).json({
                 message: 'User does not exist'
             })
         }else{

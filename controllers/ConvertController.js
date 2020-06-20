@@ -8,66 +8,44 @@ class ConvertController {
 
         const {file} = req;
 
-        console.log(req.userId)
+        console.log(file)
 
-        xml2js.parseString(file.buffer, {explicitArray: true, mergeAttrs: true}, (err, result)=> {
-            if(err){
-                return Utility.appError(err);
+        if(!file){
+            const err = {
+                statusCode: 400,
+                message: 'Please Select a file'
             }
-            const writejsn = JSON.stringify(result);
-            const data = writejsn.replace(/<[^><]*>/g, '')
-            const x = JSON.parse(data);
-            const dj =  x.question_categories_customized.question_category[5].questions[0].question;
-
-            const saveNewFile = new Convert({
-                file_name: 'PED',
-                creator: req.userId,
-                file_content: [...dj.map( (item, index) => (index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) )]
-            })
-
-            return saveNewFile.save().then( result => {
-                return res.status(200).json(result)
-            }).catch( err => {
-                return Utility.appError(err, next)
-            })
-            // return res.send(dj.map( (item, index) => (index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ));
-
-            // try {
-            //     const writeJson = fs.writeFileSync('xml.json', data);
-            //     const writeTxt = fs.writeFileSync('xml.txt',jsn.question_categories_customized.question_category[5].questions[0].question.map( (item, index) => (index+1+ ' ' +item.questiontext_noun_customized+'\n' + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext + '\n') ))
-
-            //     return res.json({
-            //         data: jsn.question_categories_customized.question_category[5].questions[0].question
-            //     })
-
-            // } catch (err) {
-            //     throw err
-            // }
+            return Utility.appError(err, next);
+        }else{
+            xml2js.parseString(file.buffer, {explicitArray: true, mergeAttrs: true}, (err, result)=> {
+                if(err){
+                    return Utility.appError(err);
+                }
+                const writejsn = JSON.stringify(result);
+                const data = writejsn.replace(/<[^><]*>/g, '')
+                const x = JSON.parse(data);
+                
+                try {
+                    const dj =  x.question_categories_customized.question_category[5].questions[0].question;
+    
+                    const saveNewFile = new Convert({
+                        file_name: 'PED',
+                        creator: req.userId,
+                        file_content: [...dj.map( (item, index) => (index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) )]
+                    })
         
-            // fs.writeFile('xml.json', data, (err, result) => {
-            //     if(err){
-            //         throw err
-            //     }
-                                
-            //     fs.writeFile('xml.txt',jsn.question_categories_customized.question_category[5].questions.map( (item, index) => (index+1 +' Role: '+item+'\n') ), (err, result) => {
-            //         if(err){
-            //             throw err;
-            //         }
-            //         return res.json({
-            //             data: jsn
-            //         })
-            //     })
-            //     console.log('Good')
-
-                // return res.json({
-                //     data: result
-                // })
-
-               //const jsn = require('../xml.json')
-             
-           // })
-//  jsn.question_categories_customized.question_category
-        })
+                    return saveNewFile.save().then( result => {
+                        return res.status(200).json(result)
+                    }).catch( err => {
+                        return Utility.appError(err, next)
+                    })
+                } catch (error) {
+                    error.message = 'XML Trained Pattern Not Recognized'
+                    return Utility.appError(error, next);
+                }
+                
+            })
+        }
         
 
         //console.log(x);
