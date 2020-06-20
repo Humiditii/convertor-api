@@ -59,7 +59,7 @@ class ConvertController {
 
         Convert.findById(fileId).then( result => {
             return res.status(200).json({
-                data: result
+                data: result.file_content
             })
         }).catch( err => {
             return Utility.appError(err, next)
