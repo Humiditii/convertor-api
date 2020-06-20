@@ -8,8 +8,6 @@ class ConvertController {
 
         const {file} = req;
 
-        console.log(file)
-
         if(!file){
             const err = {
                 statusCode: 400,
@@ -29,7 +27,7 @@ class ConvertController {
                     const dj =  x.question_categories_customized.question_category[5].questions[0].question;
     
                     const saveNewFile = new Convert({
-                        file_name: 'PED',
+                        file_name: [x.question_categories_customized.question_category[1].name].toString(),
                         creator: req.userId,
                         file_content: [...dj.map( (item, index) => (index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) )]
                     })
@@ -39,7 +37,7 @@ class ConvertController {
                     }).catch( err => {
                         return Utility.appError(err, next)
                     })
-                } catch (error) {
+                 } catch (error) {
                     error.message = 'XML Trained Pattern Not Recognized'
                     return Utility.appError(error, next);
                 }
