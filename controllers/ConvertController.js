@@ -86,7 +86,7 @@ class ConvertController {
 
 
                  } catch (error) {
-                     console.log(error)
+                     //console.log(error)
                     error.message = 'XML Trained Pattern Not Recognized'
                     return Utility.appError(error, next);
                     //return res.json( x.question_categories_customized.question_category[5].questions[0].question )
