@@ -25,21 +25,71 @@ class ConvertController {
                 
                 try {
                     const dj =  x.question_categories_customized.question_category[5].questions[0].question;
+
+                    try {
+                        const file_Content_testA = dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ) ;
+
+                        const saveNewFile = new Convert({
+                            file_name: 'ped',
+                            creator: req.userId,
+                            file_content: [...file_Content_testA]
+                        })
+            
+                        return saveNewFile.save().then( result => {
+                            return res.status(200).json(result)
+                        }).catch( err => {
+                            return Utility.appError(err, next)
+                        })
+
+                        
+                    } catch (error) {
+                        const file_Content_testAB= dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_multichoice_question[0].answers[0].answer[0].answertext  ) ) ;
+
+                        const saveNewFile = new Convert({
+                            file_name: 'ped',
+                            creator: req.userId,
+                            file_content: [...file_Content_testAB]
+                        })
+            
+                        return saveNewFile.save().then( result => {
+                            return res.status(200).json(result)
+                        }).catch( err => {
+                            return Utility.appError(err, next)
+                        })
+                    }
+
+                    // const file_Content_testA = dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ) || null;
+
+                    // const file_Content_testAB= dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_multichoice_question[0].answers[0].answer[0].answertext  ) ) || null;
+
+                    // let originalFileCOntent;
+
+                    // console.log(originalFileCOntent)
+                    // if (file_Content_testA) {
+                    //     //console.log(file_Content_testA)
+                    //     originalFileCOntent = file_Content_testA
+                    // }else {
+                    //     originalFileCOntent = file_Content_testAB
+                    // }
     
-                    const saveNewFile = new Convert({
-                        file_name: [x.question_categories_customized.question_category[1].name].toString(),
-                        creator: req.userId,
-                        file_content: [...dj.map( (item, index) => (index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) )]
-                    })
+                    // const saveNewFile = new Convert({
+                    //     file_name: 'ped',
+                    //     creator: req.userId,
+                    //     file_content: [...originalFileCOntent]
+                    // })
         
-                    return saveNewFile.save().then( result => {
-                        return res.status(200).json(result)
-                    }).catch( err => {
-                        return Utility.appError(err, next)
-                    })
+                    // return saveNewFile.save().then( result => {
+                    //     return res.status(200).json(result)
+                    // }).catch( err => {
+                    //     return Utility.appError(err, next)
+                    // })
+
+                    
                  } catch (error) {
+                     console.log(error)
                     error.message = 'XML Trained Pattern Not Recognized'
                     return Utility.appError(error, next);
+                    //return res.json( x.question_categories_customized.question_category[5].questions[0].question )
                 }
                 
             })
