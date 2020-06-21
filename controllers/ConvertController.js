@@ -27,7 +27,7 @@ class ConvertController {
                     const dj =  x.question_categories_customized.question_category[5].questions[0].question;
 
                     try {
-                        const file_Content_testA = dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ) ;
+                        const file_Content_testA = dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + ' ' + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ) ;
 
                         const saveNewFile = new Convert({
                             file_name: 'ped',
@@ -84,7 +84,7 @@ class ConvertController {
                     //     return Utility.appError(err, next)
                     // })
 
-                    
+
                  } catch (error) {
                      console.log(error)
                     error.message = 'XML Trained Pattern Not Recognized'
