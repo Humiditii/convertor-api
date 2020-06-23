@@ -29,8 +29,10 @@ class ConvertController {
                     try {
                         const file_Content_testA = dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + ' ' + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ) ;
 
+                        //return res.json(x.question_categories_customized.question_category[1].name)
+
                         const saveNewFile = new Convert({
-                            file_name: 'ped',
+                            file_name: [x.question_categories_customized.question_category[1].name].toString(),
                             creator: req.userId,
                             file_content: [...file_Content_testA]
                         })
@@ -43,10 +45,12 @@ class ConvertController {
 
                         
                     } catch (error) {
-                        const file_Content_testAB= dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized + 'Answer: '+ item.plugin_qtype_multichoice_question[0].answers[0].answer[0].answertext  ) ) ;
+                        const file_Content_testAB= dj.map( (item, index) => (  index+1+ ' ' + item.questiontext_noun_customized+' ' + 'Answer: '+ item.plugin_qtype_multichoice_question[0].answers[0].answer[0].answertext  ) ) ;
+
+                        //return res.json(x.question_categories_customized.question_category[1].name)
 
                         const saveNewFile = new Convert({
-                            file_name: 'ped',
+                            file_name: [x.question_categories_customized.question_category[1].name].toString(),
                             creator: req.userId,
                             file_content: [...file_Content_testAB]
                         })
@@ -86,10 +90,48 @@ class ConvertController {
 
 
                  } catch (error) {
+
+                    const dj =  x.question_categories.question_category[5].questions[0].question;
+
+                    try {
+                        const file_Content_testA = dj.map( (item, index) => (  index+1+ ' ' + item.questiontext + ' ' + 'Answer: '+ item.plugin_qtype_shortanswer_question[0].answers[0].answer[0].answertext  ) ) ;
+
+                        //return res.json(x.question_categories.question_category[1].name)
+
+                        const saveNewFile = new Convert({
+                            file_name: [x.question_categories.question_category[1].name].toString(),
+                            creator: req.userId,
+                            file_content: [...file_Content_testA]
+                        })
+            
+                        return saveNewFile.save().then( result => {
+                            return res.status(200).json(result)
+                        }).catch( err => {
+                            return Utility.appError(err, next)
+                        })
+
+                        
+                    } catch (error) {
+                        const file_Content_testAB= dj.map( (item, index) => (  index+1+ ' ' + item.questiontext+' ' + 'Answer: '+ item.plugin_qtype_multichoice_question[0].answers[0].answer[0].answertext  ) ) ;
+
+                        //return res.json(x.question_categories.question_category[2].name)
+
+                        const saveNewFile = new Convert({
+                            file_name: [x.question_categories.question_category[1].name].toString(),
+                            creator: req.userId,
+                            file_content: [...file_Content_testAB]
+                        })
+            
+                        return saveNewFile.save().then( result => {
+                            return res.status(200).json(result)
+                        }).catch( err => {
+                            return Utility.appError(err, next)
+                        })
+                    }
                      //console.log(error)
-                    error.message = 'XML Trained Pattern Not Recognized'
-                    return Utility.appError(error, next);
-                    //return res.json( x.question_categories_customized.question_category[5].questions[0].question )
+                    // error.message = 'XML Trained Pattern Not Recognized'
+                    // //return Utility.appError(error, next);
+                    // return res.json( x.question_categories.question_category[5].questions[0].question )
                 }
                 
             })
